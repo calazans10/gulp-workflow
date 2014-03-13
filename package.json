@@ -1,0 +1,23 @@
+{
+	"name": "gulp-workflow",
+	"version": "0.0.1",
+	"description": "Workflow using Express and Gulp.JS",
+	"main": "index.html",
+	"author": "Jeferson Farias Calazans",
+	"license": "BSD",
+	"devDependencies": {
+		"gulp-jshint": "~1.4.0",
+		"gulp-uglify": "~0.2.1",
+		"gulp-minify-css": "~0.3.0",
+		"gulp-concat": "~2.1.7",
+		"gulp-rename": "~1.1.0",
+		"gulp-minify-html": "~0.1.0",
+		"gulp-livereload": "~1.1.1",
+		"connect-livereload": "~0.3.2",
+		"tiny-lr": "~0.0.5",
+		"express": "~3.4.7",
+		"gulp-imagemin": "~0.1.5",
+		"gulp": "~3.5.2",
+		"gulp-autoprefixer": "0.0.6"
+	}
+}
