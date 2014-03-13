@@ -6,17 +6,17 @@ Gulp Workflow
 ## We use:
 
 * [Gulp - Minify - Html](https://npmjs.org/package/gulp-minify-html)
-* [Gulp - Minify - CSS](https://github.com/jonathanepollack/gulp-minify-css)
+* [Gulp - Minify - CSS](https://www.npmjs.org/package/gulp-minify-css)
 * [Gulp - Concat](https://npmjs.org/package/gulp-concat)
-* [Gulp - Rename](https://github.com/hparra/gulp-rename)
+* [Gulp - Rename](https://www.npmjs.org/package/gulp-rename)
 * [Gulp - Imagemin](https://npmjs.org/package/gulp-imagemin)
 * [Gulp - Uglify](https://npmjs.org/package/gulp-uglify)
 * [Gulp - JSHint](https://npmjs.org/package/gulp-jshint)
-* [Gulp - Autoprefixer](https://github.com/Metrime/gulp-autoprefixer)
-* [Gulp - Livereload](https://github.com/vohof/gulp-livereload)
-* [connect-livereload](https://github.com/intesso/connect-livereload)
-* [tiny-lr](https://github.com/mklabs/tiny-lr)
-* [express](https://github.com/visionmedia/express)
+* [Gulp - Autoprefixer](https://www.npmjs.org/package/gulp-autoprefixer)
+* [Gulp - Livereload](https://www.npmjs.org/package/gulp-livereload)
+* [connect-livereload](https://www.npmjs.org/package/connect-livereload)
+* [tiny-lr](https://www.npmjs.org/package/tiny-lr)
+* [express](https://www.npmjs.org/package/express)
 
 ## Clone
 	git clone git@github.com:calazans10/gulp-workflow.git
