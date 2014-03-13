@@ -24,5 +24,8 @@ Gulp Workflow
 ## Installation
 	npm install
 
+## Usage
+	gulp
+
 - - -
 MIT licensed.
