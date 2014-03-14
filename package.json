@@ -1,7 +1,7 @@
 {
   "name": "gulp-workflow",
   "version": "0.0.1",
-  "description": "Workflow using Express and Gulp.JS",
+  "description": "Workflow using Express, Bower & Gulp.JS",
   "main": "index.html",
   "author": "Jeferson Farias Calazans",
   "license": "BSD",
