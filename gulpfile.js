@@ -7,6 +7,7 @@ var rename         = require('gulp-rename');
 var imagemin       = require('gulp-imagemin');
 var prefix         = require('gulp-autoprefixer');
 var minifyHTML     = require('gulp-minify-html');
+var bowerFiles     = require('gulp-bower-files');
 var express        = require('express');
 var refresh        = require('gulp-livereload');
 var livereload     = require('connect-livereload');
@@ -37,6 +38,10 @@ server.use(express.static(expressRoot));
 gulp.task('serve', function() {
 	server.listen(expressPort);
 	lrserver.listen(livereloadPort);
+});
+
+gulp.task('bower', function() {
+	bowerFiles().pipe(gulp.dest("./assets/lib"));
 });
 
 // Lint JS

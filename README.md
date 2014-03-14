@@ -13,9 +13,11 @@ Gulp Workflow
 * [Gulp - Uglify](https://npmjs.org/package/gulp-uglify)
 * [Gulp - JSHint](https://npmjs.org/package/gulp-jshint)
 * [Gulp - Autoprefixer](https://www.npmjs.org/package/gulp-autoprefixer)
+* [Gulp - Bower - Files](https://www.npmjs.org/package/gulp-bower-files)
 * [Gulp - Livereload](https://www.npmjs.org/package/gulp-livereload)
 * [connect-livereload](https://www.npmjs.org/package/connect-livereload)
 * [tiny-lr](https://www.npmjs.org/package/tiny-lr)
+* [bower](https://www.npmjs.org/package/bower)
 * [express](https://www.npmjs.org/package/express)
 
 ## Clone
