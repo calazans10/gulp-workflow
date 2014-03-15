@@ -1,7 +1,7 @@
 Gulp Workflow
 =============
 
-![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/assets/img/logo.png)
+![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/img/logo.png)
 
 ## We use:
 
