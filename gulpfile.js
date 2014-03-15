@@ -5,11 +5,9 @@ var jshint         = require('gulp-jshint');
 var uglify         = require('gulp-uglify');
 var minifyCSS      = require('gulp-minify-css');
 var concat         = require('gulp-concat');
-var rename         = require('gulp-rename');
 var imagemin       = require('gulp-imagemin');
 var prefix         = require('gulp-autoprefixer');
 var minifyHTML     = require('gulp-minify-html');
-var bowerFiles     = require('gulp-bower-files');
 var refresh        = require('gulp-livereload');
 var livereload     = require('connect-livereload');
 var express        = require('express');
@@ -17,14 +15,6 @@ var server         = express();
 var lrserver       = require('tiny-lr')();
 
 var path = {
-		'html': {
-			'load': './static/html/**/*.html',
-			'build': './'
-		},
-		'img': {
-			'load': './static/img/**/*',
-			'build': './img'
-		},
 		'js': {
 			'load': './static/js/**/*.js',
 			'build': './js'
@@ -32,6 +22,14 @@ var path = {
 		'css': {
 			'load': './static/css/**/*.css',
 			'build': './css'
+		},
+		'img': {
+			'load': './static/img/**/*',
+			'build': './img'
+		},
+		'html': {
+			'load': './static/html/**/*.html',
+			'build': './'
 		}
 	}
 
@@ -49,10 +47,6 @@ gulp.task('serve', function() {
 	lrserver.listen(livereloadPort);
 });
 
-gulp.task('bower', function() {
-	bowerFiles().pipe(gulp.dest("./lib"));
-});
-
 // Lint JS
 gulp.task('lint', function() {
 	return gulp.src(path.js.load)
@@ -63,9 +57,8 @@ gulp.task('lint', function() {
 // Concat & Minify JS
 gulp.task('scripts', function() {
 	return gulp.src(path.js.load)
-		.pipe(concat('./js'))
-		.pipe(rename('all.min.js'))
 		.pipe(uglify())
+		.pipe(concat('all.min.js'))
 		.pipe(size())
 		.pipe(gulp.dest(path.js.build))
 		.pipe(refresh(lrserver));
@@ -74,10 +67,9 @@ gulp.task('scripts', function() {
 // Concat & Minify CSS
 gulp.task('styles', function() {
 	return gulp.src(path.css.load)
-		.pipe(concat('./css'))
-		.pipe(rename('all.min.css'))
 		.pipe(minifyCSS())
 		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+		.pipe(concat('all.min.css'))
 		.pipe(size())
 		.pipe(gulp.dest(path.css.build))
 		.pipe(refresh(lrserver));
