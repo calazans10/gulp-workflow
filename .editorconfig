@@ -11,9 +11,6 @@ insert_final_newline = true
 [*.{html,css,js}]
 indent_style = tab
 
-[*.{html,css}]
-indent_size = 4
-
 [*.js]
 indent_size = 2
 

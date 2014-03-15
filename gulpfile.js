@@ -16,22 +16,22 @@ var express        = require('express');
 var server         = express();
 var lrserver       = require('tiny-lr')();
 
-var config = {
+var path = {
 		'html': {
-			'loadPath': './static/html/**/*.html',
-			'buildPath': './'
+			'load': './static/html/**/*.html',
+			'build': './'
 		},
 		'img': {
-			'loadPath': './static/img/**/*',
-			'buildPath': './img'
+			'load': './static/img/**/*',
+			'build': './img'
 		},
 		'js': {
-			'loadPath': './static/js/**/*.js',
-			'buildPath': './js'
+			'load': './static/js/**/*.js',
+			'build': './js'
 		},
 		'css': {
-			'loadPath': './static/css/**/*.css',
-			'buildPath': './css'
+			'load': './static/css/**/*.css',
+			'build': './css'
 		}
 	}
 
@@ -55,66 +55,63 @@ gulp.task('bower', function() {
 
 // Lint JS
 gulp.task('lint', function() {
-	return gulp.src(config.js.loadPath)
+	return gulp.src(path.js.load)
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 });
 
 // Concat & Minify JS
 gulp.task('scripts', function() {
-	return gulp.src(config.js.loadPath)
+	return gulp.src(path.js.load)
 		.pipe(concat('./js'))
 		.pipe(rename('all.min.js'))
 		.pipe(uglify())
 		.pipe(size())
-		.pipe(gulp.dest(config.js.buildPath))
+		.pipe(gulp.dest(path.js.build))
 		.pipe(refresh(lrserver));
 });
 
 // Concat & Minify CSS
 gulp.task('styles', function() {
-	return gulp.src(config.css.loadPath)
+	return gulp.src(path.css.load)
 		.pipe(concat('./css'))
 		.pipe(rename('all.min.css'))
 		.pipe(minifyCSS())
 		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
 		.pipe(size())
-		.pipe(gulp.dest(config.css.buildPath))
+		.pipe(gulp.dest(path.css.build))
 		.pipe(refresh(lrserver));
 });
 
 // Copy all static images
 gulp.task('images', function() {
-	return gulp.src(config.img.loadPath)
+	return gulp.src(path.img.load)
 		.pipe(imagemin({optimizationLevel: 5}))
 		.pipe(size())
-		.pipe(gulp.dest(config.img.buildPath))
+		.pipe(gulp.dest(path.img.build))
 		.pipe(refresh(lrserver));
 });
 
 // Minify HTML
 gulp.task('html', function() {
-	return gulp.src(config.html.loadPath)
+	return gulp.src(path.html.load)
 		.pipe(minifyHTML())
 		.pipe(size())
-		.pipe(gulp.dest(config.html.buildPath))
+		.pipe(gulp.dest(path.html.build))
 		.pipe(refresh(lrserver));
 });
 
 gulp.task('clean', function() {
-	return gulp.src(
-			[config.css.buildPath, config.js.buildPath, config.img.buildPath],
-			{read: false}
-		)
+	return gulp.src([path.css.build, path.js.build, path.img.build], {read: false})
 		.pipe(clean());
 });
 
 // Watch files
 gulp.task('watch', function() {
-	gulp.watch(config.js.loadPath, ['lint', 'scripts']);
-	gulp.watch(config.css.loadPath, ['styles']);
-	gulp.watch(config.img.loadPath, ['images']);
-	gulp.watch(config.html.loadPath, ['html']);
+	gulp.watch(path.js.load, ['lint', 'scripts']);
+	gulp.watch(path.css.load, ['styles']);
+	gulp.watch(path.img.load, ['images']);
+	gulp.watch(path.html.load, ['html']);
 });
 
 gulp.task('build', ['lint', 'scripts', 'styles', 'images', 'html', 'watch', 'serve']);
