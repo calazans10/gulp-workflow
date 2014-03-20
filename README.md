@@ -21,13 +21,31 @@ Gulp Workflow
 * [express](https://www.npmjs.org/package/express)
 
 ## Clone
-	git clone git@github.com:calazans10/gulp-workflow.git
+    git clone git@github.com:calazans10/gulp-workflow.git
 
 ## Installation
-	npm install
+    npm install
 
 ## Usage
-	gulp
+    gulp
+
+## Folders Structure
+
+<pre>
+.
+|--/build
+|--|--/css
+|--|--/img
+|--|--/js
+|--/src
+|--|--/css
+|--|--/html
+|--|--/img
+|--|--/js
+|--index.html
+|--package.json
+|--gulpfile.js
+</pre>
 
 - - -
 MIT licensed.

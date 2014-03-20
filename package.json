@@ -1,10 +1,14 @@
 {
   "name": "gulp-workflow",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Workflow using Express & Gulp.JS",
   "main": "index.html",
-  "author": "Jeferson Farias Calazans",
-  "license": "BSD",
+  "license": "MIT",
+  "respository": "calazans10/gulp-workflow",
+  "author": {
+    "name": "Jeferson Farias Calazans",
+    "email": "calazans10@gmail.com"
+  },
   "devDependencies": {
     "gulp-jshint": "~1.4.0",
     "gulp-uglify": "~0.2.1",

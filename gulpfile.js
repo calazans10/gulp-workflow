@@ -10,105 +10,95 @@ var prefix         = require('gulp-autoprefixer');
 var minifyHTML     = require('gulp-minify-html');
 var refresh        = require('gulp-livereload');
 var livereload     = require('connect-livereload');
+var server         = require('tiny-lr')();
 var express        = require('express');
-var server         = express();
-var lrserver       = require('tiny-lr')();
+var app            = express();
 
 var path = {
-		'js': {
-			'load': './static/js/**/*.js',
-			'build': './js'
-		},
-		'css': {
-			'load': './static/css/**/*.css',
-			'build': './css'
-		},
-		'img': {
-			'load': './static/img/**/*',
-			'build': './img'
-		},
-		'html': {
-			'load': './static/html/**/*.html',
-			'build': './'
-		}
-	}
+  'src': {
+    'js': './src/js/**/*.js',
+    'css': './src/css/**/*.css',
+    'img': './src/img/**/*',
+    'html': './src/html/**/*.html'
+  },
+  'build': {
+    'js': './build/js',
+    'css': './build/css',
+    'img': './build/img',
+    'html': './'
+  }
+}
 
-var expressRoot    = __dirname;
-var expressPort    = 4000;
-var livereloadPort = 35729;
+app.use(livereload({ port: 35729 }));
+app.use(express.static(__dirname));
 
-server.use(livereload({
-	port: livereloadPort
-}));
-server.use(express.static(expressRoot));
-
-gulp.task('serve', function() {
-	server.listen(expressPort);
-	lrserver.listen(livereloadPort);
+gulp.task('run', function() {
+  app.listen(4000);
+  server.listen(35729);
 });
 
 // Lint JS
 gulp.task('lint', function() {
-	return gulp.src(path.js.load)
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
+  return gulp.src(path.src.js)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 // Concat & Minify JS
 gulp.task('scripts', function() {
-	return gulp.src(path.js.load)
-		.pipe(uglify())
-		.pipe(concat('all.min.js'))
-		.pipe(size())
-		.pipe(gulp.dest(path.js.build))
-		.pipe(refresh(lrserver));
+  return gulp.src(path.src.js)
+    .pipe(uglify())
+    .pipe(concat('all.min.js'))
+    .pipe(size())
+    .pipe(gulp.dest(path.build.js))
+    .pipe(refresh(server));
 });
 
 // Concat & Minify CSS
 gulp.task('styles', function() {
-	return gulp.src(path.css.load)
-		.pipe(minifyCSS())
-		.pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-		.pipe(concat('all.min.css'))
-		.pipe(size())
-		.pipe(gulp.dest(path.css.build))
-		.pipe(refresh(lrserver));
+  return gulp.src(path.src.css)
+    .pipe(minifyCSS())
+    .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
+    .pipe(concat('all.min.css'))
+    .pipe(size())
+    .pipe(gulp.dest(path.build.css))
+    .pipe(refresh(server));
 });
 
 // Copy all static images
 gulp.task('images', function() {
-	return gulp.src(path.img.load)
-		.pipe(imagemin({optimizationLevel: 5}))
-		.pipe(size())
-		.pipe(gulp.dest(path.img.build))
-		.pipe(refresh(lrserver));
+  return gulp.src(path.src.img)
+    .pipe(imagemin({optimizationLevel: 5}))
+    .pipe(size())
+    .pipe(gulp.dest(path.build.img))
+    .pipe(refresh(server));
 });
 
 // Minify HTML
 gulp.task('html', function() {
-	return gulp.src(path.html.load)
-		.pipe(minifyHTML())
-		.pipe(size())
-		.pipe(gulp.dest(path.html.build))
-		.pipe(refresh(lrserver));
+  return gulp.src(path.src.html)
+    .pipe(minifyHTML())
+    .pipe(size())
+    .pipe(gulp.dest(path.build.html))
+    .pipe(refresh(server));
 });
 
 gulp.task('clean', function() {
-	return gulp.src([path.css.build, path.js.build, path.img.build], {read: false})
-		.pipe(clean());
+  return gulp.src([path.build.css, path.build.js, path.build.img], {read: false})
+    .pipe(clean());
 });
 
 // Watch files
 gulp.task('watch', function() {
-	gulp.watch(path.js.load, ['lint', 'scripts']);
-	gulp.watch(path.css.load, ['styles']);
-	gulp.watch(path.img.load, ['images']);
-	gulp.watch(path.html.load, ['html']);
+  gulp.watch(path.src.js, ['lint', 'scripts']);
+  gulp.watch(path.src.css, ['styles']);
+  gulp.watch(path.src.img, ['images']);
+  gulp.watch(path.src.html, ['html']);
 });
 
-gulp.task('build', ['lint', 'scripts', 'styles', 'images', 'html', 'watch', 'serve']);
+gulp.task('build', ['lint', 'scripts', 'styles', 'images', 'html', 'watch', 'run']);
 
 // Default
 gulp.task('default', ['clean'], function () {
-	gulp.start('build');
+  gulp.start('build');
 });
