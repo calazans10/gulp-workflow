@@ -1,4 +1,3 @@
-Gulp Workflow
 =============
 
 ![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/build/img/logo.png)
@@ -14,7 +13,6 @@ Gulp Workflow
 * [Gulp - Imagemin](https://npmjs.org/package/gulp-imagemin)
 * [Gulp - Uglify](https://npmjs.org/package/gulp-uglify)
 * [Gulp - JSHint](https://npmjs.org/package/gulp-jshint)
-* [Gulp - Autoprefixer](https://www.npmjs.org/package/gulp-autoprefixer)
 
 ## Clone
     git clone git@github.com:calazans10/gulp-workflow.git

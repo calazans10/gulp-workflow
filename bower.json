@@ -1,0 +1,24 @@
+{
+  "name": "diarium",
+  "version": "1.0.0",
+  "authors": [
+    "Jeferson Farias Calazans <calazans10@gmail.com>"
+  ],
+  "description": "Workflow using Gulp.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "~3.0.1"
+  },
+  "overrides": {
+    "normalize-css": {
+      "main": "normalize.css"
+    }
+  }
+}
