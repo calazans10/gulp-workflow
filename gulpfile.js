@@ -40,7 +40,7 @@ gulp.task('bower', function() {
 });
 
 gulp.task('js', function() {
-  gulp.src(path.src.vendor + '/**/*.js')
+  gulp.src(path.src.vendor + '**/*.js')
     .pipe(uglify())
     .pipe(concat('vendor.js'))
     .pipe(size())
@@ -49,7 +49,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('css', function() {
-  gulp.src(path.src.vendor + '/**/*.css')
+  gulp.src(path.src.vendor + '**/*.css')
     .pipe(minifyCSS())
     .pipe(concat('vendor.css'))
     .pipe(size())
@@ -90,13 +90,13 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-  // gulp.watch(path.src.vendor, ['vendor']);
+  gulp.watch(path.src.vendor, ['vendor']);
   gulp.watch(path.src.stylus + '*.styl', ['stylus']);
   gulp.watch(path.src.img, ['images']);
   gulp.watch(path.src.html, ['html']);
 });
 
-gulp.task('build', ['stylus','images', 'html', 'watch', 'connect']);
+gulp.task('build', ['vendor', 'stylus','images', 'html', 'watch', 'connect']);
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
