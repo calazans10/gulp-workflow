@@ -1,29 +1,29 @@
-var gulp           = require('gulp');
-var size           = require('gulp-size');
-var clean          = require('gulp-clean');
-var uglify         = require('gulp-uglify');
-var minifyCSS      = require('gulp-minify-css');
-var concat         = require('gulp-concat');
-var rename         = require('gulp-rename');
-var imagemin       = require('gulp-imagemin');
-var minifyHTML     = require('gulp-minify-html');
-var nib            = require('nib');
-var stylus         = require('gulp-stylus');
-var bowerFiles     = require('gulp-bower-files');
-var connect        = require('gulp-connect');
+var gulp       = require('gulp');
+var size       = require('gulp-size');
+var clean      = require('gulp-clean');
+var uglify     = require('gulp-uglify');
+var minifyCSS  = require('gulp-minify-css');
+var concat     = require('gulp-concat');
+var rename     = require('gulp-rename');
+var imagemin   = require('gulp-imagemin');
+var minifyHTML = require('gulp-minify-html');
+var nib        = require('nib');
+var stylus     = require('gulp-stylus');
+var bowerFiles = require('gulp-bower-files');
+var connect    = require('gulp-connect');
 
 var path = {
   'src': {
-    'img': './src/img/**/*',
-    'html': './src/html/**/*.html',
+    'img':    './src/img/**/*',
+    'html':   './src/html/**/*.html',
     'stylus': './src/stylus/',
     'vendor': './src/vendor/'
   },
   'build': {
-    'js': './build/js',
-    'css': './build/css',
-    'img': './build/img',
-    'html': './'
+    'img':  './build/img',
+    'html': './',
+    'css':  './build/css',
+    'js':   './build/js'
   }
 }
 
@@ -39,16 +39,14 @@ gulp.task('bower', function() {
   bowerFiles().pipe(gulp.dest(path.src.vendor));
 });
 
-gulp.task('js', function() {
+gulp.task('vendor', function() {
   gulp.src(path.src.vendor + '**/*.js')
     .pipe(uglify())
     .pipe(concat('vendor.js'))
     .pipe(size())
     .pipe(gulp.dest(path.build.js))
     .pipe(connect.reload());
-});
 
-gulp.task('css', function() {
   gulp.src(path.src.vendor + '**/*.css')
     .pipe(minifyCSS())
     .pipe(concat('vendor.css'))
@@ -56,8 +54,6 @@ gulp.task('css', function() {
     .pipe(gulp.dest(path.build.css))
     .pipe(connect.reload());
 });
-
-gulp.task('vendor', ['js', 'css']);
 
 gulp.task('stylus', function() {
   gulp.src(path.src.stylus + 'main.styl')
@@ -90,13 +86,14 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
+  gulp.watch('./bower.json', ['bower']);
   gulp.watch(path.src.vendor, ['vendor']);
   gulp.watch(path.src.stylus + '*.styl', ['stylus']);
   gulp.watch(path.src.img, ['images']);
   gulp.watch(path.src.html, ['html']);
 });
 
-gulp.task('build', ['vendor', 'stylus','images', 'html', 'watch', 'connect']);
+gulp.task('build', ['bower', 'vendor', 'stylus', 'images', 'html', 'watch', 'connect']);
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
