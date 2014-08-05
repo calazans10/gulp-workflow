@@ -1,16 +1,18 @@
-var gulp       = require('gulp');
-var size       = require('gulp-size');
-var clean      = require('gulp-clean');
-var uglify     = require('gulp-uglify');
-var minifyCSS  = require('gulp-minify-css');
-var concat     = require('gulp-concat');
-var rename     = require('gulp-rename');
-var imagemin   = require('gulp-imagemin');
-var minifyHTML = require('gulp-minify-html');
-var nib        = require('nib');
-var stylus     = require('gulp-stylus');
-var bowerFiles = require('gulp-bower-files');
-var connect    = require('gulp-connect');
+var gulp        = require('gulp'),
+    size        = require('gulp-size'),
+    rimraf      = require('gulp-rimraf'),
+    uglify      = require('gulp-uglify'),
+    minifyCSS   = require('gulp-minify-css'),
+    concat      = require('gulp-concat'),
+    rename      = require('gulp-rename'),
+    imagemin    = require('gulp-imagemin'),
+    minifyHTML  = require('gulp-minify-html'),
+    nib         = require('nib'),
+    stylus      = require('gulp-stylus'),
+    bowerFiles  = require('main-bower-files'),
+    runSequence = require('run-sequence'),
+    browserSync = require('browser-sync'),
+    reload      = browserSync.reload;
 
 var path = {
   'src': {
@@ -22,21 +24,15 @@ var path = {
   'build': {
     'img':  './build/img',
     'html': './',
+    'bower': './bower.json',
     'css':  './build/css',
     'js':   './build/js'
   }
 }
 
-gulp.task('connect', function() {
-  connect.server({
-    root: ['.', 'build', 'src'],
-    port: 8000,
-    livereload: true
-  });
-});
-
 gulp.task('bower', function() {
-  bowerFiles().pipe(gulp.dest(path.src.vendor));
+  gulp.src(bowerFiles())
+    .pipe(gulp.dest(path.src.vendor));
 });
 
 gulp.task('vendor', function() {
@@ -45,14 +41,14 @@ gulp.task('vendor', function() {
     .pipe(concat('vendor.js'))
     .pipe(size())
     .pipe(gulp.dest(path.build.js))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 
   gulp.src(path.src.vendor + '**/*.css')
     .pipe(minifyCSS())
     .pipe(concat('vendor.css'))
     .pipe(size())
     .pipe(gulp.dest(path.build.css))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('stylus', function() {
@@ -61,7 +57,7 @@ gulp.task('stylus', function() {
     .pipe(rename('style.css'))
     .pipe(size())
     .pipe(gulp.dest(path.build.css))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('images', function() {
@@ -69,7 +65,7 @@ gulp.task('images', function() {
     .pipe(imagemin({optimizationLevel: 5}))
     .pipe(size())
     .pipe(gulp.dest(path.build.img))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('html', function() {
@@ -77,24 +73,33 @@ gulp.task('html', function() {
     .pipe(minifyHTML())
     .pipe(size())
     .pipe(gulp.dest(path.build.html))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
-gulp.task('clean', function() {
-  gulp.src([path.build.css, path.build.js, path.build.img], {read: false})
-    .pipe(clean());
+gulp.task('server', function() {
+  browserSync({
+    server: {
+      baseDir: __dirname,
+    },
+    open: false
+  })
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./bower.json', ['bower']);
+  gulp.watch(path.src.bower, ['bower']);
   gulp.watch(path.src.vendor, ['vendor']);
   gulp.watch(path.src.stylus + '*.styl', ['stylus']);
   gulp.watch(path.src.img, ['images']);
   gulp.watch(path.src.html, ['html']);
 });
 
-gulp.task('build', ['bower', 'vendor', 'stylus', 'images', 'html', 'watch', 'connect']);
-
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
+gulp.task('clean', function() {
+  gulp.src([path.build.css, path.build.js, path.build.img], {read: false})
+    .pipe(rimraf());
 });
+
+gulp.task('build', function() {
+  runSequence('clean', ['bower', 'vendor', 'stylus', 'images', 'html']);
+});
+
+gulp.task('default', ['build', 'server', 'watch']);
