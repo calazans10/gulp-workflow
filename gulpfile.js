@@ -16,17 +16,17 @@ var gulp        = require('gulp'),
 
 var path = {
   'src': {
-    'img':    './src/img/**/*',
-    'html':   './src/html/**/*.html',
+    'img'   : './src/img/**/*',
+    'html'  : './src/html/**/*.html',
     'stylus': './src/stylus/',
     'vendor': './src/vendor/'
   },
   'build': {
-    'img':  './build/img',
-    'html': './',
+    'img'  : './build/img',
+    'html' : './',
     'bower': './bower.json',
-    'css':  './build/css',
-    'js':   './build/js'
+    'css'  : './build/css',
+    'js'   : './build/js'
   }
 }
 
