@@ -1,0 +1,1 @@
+var script;script="take some coffee here";
