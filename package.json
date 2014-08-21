@@ -15,32 +15,20 @@
   "devDependencies": {
     "bower": "^1.3.8",
     "browser-sync": "^1.3.2",
-<<<<<<< HEAD
     "del": "^0.1.1",
     "gulp": "^3.8.7",
     "gulp-changed": "^0.4.1",
     "gulp-coffee": "^2.1.1",
-=======
     "gulp": "^3.8.7",
->>>>>>> 03895f58bcd9c6b52ca74a57ed113e1dda774434
     "gulp-concat": "^2.3.4",
-    "gulp-connect": "^2.0.6",
     "gulp-imagemin": "^0.6.2",
-    "gulp-jshint": "^1.8.4",
     "gulp-minify-css": "^0.3.7",
     "gulp-minify-html": "^0.1.4",
     "gulp-rename": "^1.2.0",
-<<<<<<< HEAD
     "gulp-size": "^1.0.0",
     "gulp-stylus": "^1.3.0",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^3.0.0",
-=======
-    "gulp-rimraf": "^0.1.0",
-    "gulp-size": "^1.0.0",
-    "gulp-stylus": "^1.3.0",
-    "gulp-uglify": "^0.3.1",
->>>>>>> 03895f58bcd9c6b52ca74a57ed113e1dda774434
     "main-bower-files": "^1.0.2",
     "nib": "^1.0.3",
     "run-sequence": "^0.3.6",
