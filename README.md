@@ -1,3 +1,4 @@
+gulp-workflow
 =============
 
 ![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/build/img/logo.png)
@@ -11,23 +12,29 @@
 ## Usage
     gulp
 
-## Folders Structure
+## Structure
 
-<pre>
+```bash
 .
-|--/build
-|--|--/css
-|--|--/img
-|--|--/js
-|--/src
-|--|--/css
-|--|--/html
-|--|--/img
-|--|--/js
-|--index.html
-|--package.json
-|--gulpfile.js
-</pre>
+|── build/
+|   └── css/
+|   └── img/
+|   └── js/
+|── src/
+|   └── coffee/
+|   └── html/
+|   └── img/ 
+|   └── stylus/
+|   └── vendor/
+└── bower.json
+└── .editorconfig
+└── .gitignore
+└── gulpfile.js
+└── index.html
+└── package.json
+└── LICENCE.md
+└── README.md
+```
 
 - - -
 MIT licensed.
