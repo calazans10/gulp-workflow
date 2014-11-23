@@ -1,19 +1,15 @@
+html
+  box-sizing: border-box
+
 *,
 *:before,
 *:after
-  box-sizing: border-box
-
-.clearfix
-  clearfix()
-
-.sro
-  screen-reader-only()
+  box-sizing: inherit
 
 body
   width: 100%
-  background: $blue
-  color: $white
-  font-family: 'Roboto', sans-serif
+  height: 100%
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
 
 h1,
 h2,
@@ -22,10 +18,17 @@ h4,
 h5,
 h6,
 p,
-ul,
-menu
+ol,
+ul
   margin: 0
   padding: 0
 
+ol,
 ul
   list-style: none
+
+.clearfix
+  clearfix()
+
+.sro
+  screen-reader-only()
