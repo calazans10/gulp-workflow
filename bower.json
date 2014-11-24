@@ -1,6 +1,6 @@
 {
   "name": "gulp-workflow",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "authors": [
     "Jeferson Farias Calazans <calazans10@gmail.com>"
   ],
@@ -14,11 +14,15 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "~3.0.1"
+    "normalize-css": "~3.0.1",
+    "jquery": "~2.1.1"
   },
   "overrides": {
     "normalize-css": {
       "main": "normalize.css"
+    },
+    "jquery": {
+      "main": "dist/jquery.js"
     }
   }
 }

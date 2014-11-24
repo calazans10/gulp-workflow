@@ -1,1 +1,2 @@
-script = 'take some coffee here'
+$ ->
+  console.log 'DOM is ready'

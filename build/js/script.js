@@ -1,1 +1,1 @@
-var script;script="take some coffee here";
+$(function(){return console.log("DOM is ready")});
