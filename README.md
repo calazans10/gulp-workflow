@@ -22,4 +22,4 @@ gulp-workflow
 
 ## License
 
-MIT License
+[MIT License](https://github.com/calazans10/gulp-workflow/blob/master/LICENCE.md)
