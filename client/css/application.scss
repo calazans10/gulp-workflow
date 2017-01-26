@@ -1,8 +1,8 @@
 html { box-sizing: border-box; }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -23,14 +23,14 @@ body {
 }
 
 .app-logo {
-  background: #fff;
-  border-radius: 50%;
+  width: 300px;
   margin: 0 auto;
   padding: 50px;
-  width: 300px;
+  border-radius: 50%;
+  background: #fff;
 
   &__image {
+    width: 98px;
     height: 194px;
-    width: 98.5px;
   }
 }
