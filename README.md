@@ -1,44 +1,35 @@
-gulp-workflow
-=============
+# Gulp Workflow
 
-![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/build/img/logo.png)
-
-## Clone
-    git clone git@github.com:calazans10/gulp-workflow.git
-
-## Installation
-    npm install
+![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/client/img/logo.png)
 
 ## Usage
-    gulp
 
-## Contributing
+1. Clone this repository
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+        $ git clone git@github.com:calazans10/gulp-workflow.git
+
+2. Change directory to the application folder
+
+        $ cd gulp-workflow
+
+3. Install the dependencies
+
+        $ npm install
+
+4. Run the gulp command
+
+        $ gulp
+
+5. Using a browser, go to `http://localhost:3000` to load the initial page
+
+## Contribute
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Submit a pull request
 
 ## License
 
-(The MIT License)
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+MIT © [Jeferson Farias Calazans](http://calazans10.com)
