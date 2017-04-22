@@ -1,6 +1,6 @@
 {
   "name": "gulp-workflow",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Workflow using Gulp.js",
   "main": "index.html",
   "license": "MIT",
@@ -13,20 +13,21 @@
     "email": "calazans10@gmail.com"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.6",
+    "browser-sync": "^2.18.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-coffee": "^2.3.3",
-    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
     "gulp-imagemin": "^3.1.1",
-    "gulp-pug": "^3.2.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.0",
-    "gulp-uglify": "^2.0.1",
-    "run-sequence": "^1.2.2"
+    "gulp-sourcemaps": "^2.6.0",
+    "run-sequence": "^1.2.2",
+    "ts-loader": "^2.0.3",
+    "webpack-stream": "^3.2.0"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">= 0.9"
   }
 }
