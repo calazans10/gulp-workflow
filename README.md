@@ -1,6 +1,6 @@
 # Gulp Workflow
 
-![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/client/img/logo.png)
+![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/src/img/logo.png)
 
 ## Usage
 
