@@ -1,15 +1,15 @@
-var gulp = require('gulp');
-var webpack = require('webpack-stream');
-var autoprefixer = require('gulp-autoprefixer');
-var imagemin = require('gulp-imagemin');
-var pug = require('gulp-pug');
-var sass = require('gulp-sass');
-var csso = require('gulp-csso');
-var sourcemaps = require('gulp-sourcemaps');
-var rename = require('gulp-rename');
-var browserSync = require('browser-sync').create();
-var runSequence = require('run-sequence');
-var del = require('del');
+const gulp = require('gulp');
+const webpack = require('webpack-stream');
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const csso = require('gulp-csso');
+const sourcemaps = require('gulp-sourcemaps');
+const rename = require('gulp-rename');
+const browserSync = require('browser-sync').create();
+const runSequence = require('run-sequence');
+const del = require('del');
 
 gulp.task('clean', function() {
   return del(['dist']);
