@@ -1,19 +1,27 @@
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
-  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        },
       }
     ]
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js']
-  },
   output: {
     filename: 'bundle.js'
-  }
+  },
+  plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true
+    })
+  ]
 };
