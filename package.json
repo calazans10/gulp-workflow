@@ -16,7 +16,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "browser-sync": "^2.24.1",
+    "browser-sync": "^2.24.7",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-gulp": "^2.1.0",
