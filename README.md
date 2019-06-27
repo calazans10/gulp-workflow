@@ -1,26 +1,26 @@
 # Gulp Workflow
 
-![Class Gulp](https://raw.github.com/calazans10/gulp-workflow/master/src/img/logo.png)
+![Class Gulp](https://raw.githubusercontent.com/calazans10/gulp-workflow/feature/improvements/src/images/logo.png)
 
 ## Usage
 
-1. Clone this repository
+1.  Clone this repository
 
         $ git clone git@github.com:calazans10/gulp-workflow.git
 
-2. Change directory to the application folder
+2.  Change directory to the application folder
 
         $ cd gulp-workflow
 
-3. Install the dependencies
+3.  Install the dependencies
 
         $ npm install
 
-4. Run the gulp command
+4.  Run the gulp command
 
         $ gulp
 
-5. Using a browser, go to `http://localhost:3000` to load the initial page
+5.  Using a browser, go to `http://localhost:3000` to load the initial page
 
 ## Contribute
 
