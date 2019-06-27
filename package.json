@@ -1,36 +1,42 @@
 {
   "name": "gulp-workflow",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Workflow using Gulp.js",
-  "main": "index.html",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/calazans10/gulp-workflow.git"
-  },
+  "repository": "calazans10/gulp-workflow",
   "author": {
     "name": "Jeferson Farias Calazans",
-    "email": "calazans10@gmail.com"
-  },
-  "devDependencies": {
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "browser-sync": "^2.24.7",
-    "del": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-gulp": "^2.1.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.3",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack-stream": "^4.0.3"
+    "email": "calazans10@gmail.com",
+    "url": "calazans10.com"
   },
   "engines": {
-    "node": ">=4.3.0 <5.0.0 || >=5.10"
+    "node": ">=6"
+  },
+  "keywords": [
+    "gulp",
+    "gulp-starter",
+    "simple",
+    "starter",
+    "starter-kit"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "del": "^4.1.1",
+    "eslint": "^6.0.1",
+    "eslint-config-gulp": "^3.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.12.0",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "webpack-stream": "^5.2.1"
   }
 }
