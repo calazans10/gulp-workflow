@@ -1,6 +1,7 @@
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [
@@ -10,18 +11,20 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env']
           }
-        },
+        }
       }
+    ]
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJSPlugin({
+        sourceMap: true
+      })
     ]
   },
   output: {
     filename: 'bundle.js'
-  },
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true
-    })
-  ]
+  }
 };
