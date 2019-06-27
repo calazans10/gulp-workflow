@@ -1,7 +1,5 @@
 # Gulp Workflow
 
-![Class Gulp](https://raw.githubusercontent.com/calazans10/gulp-workflow/feature/improvements/src/images/logo.png)
-
 ## Usage
 
 1.  Clone this repository
