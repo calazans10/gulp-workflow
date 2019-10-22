@@ -20,7 +20,7 @@
     "starter-kit"
   ],
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.6.2",
     "babel-loader": "^8.0.6",
