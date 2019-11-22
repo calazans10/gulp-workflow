@@ -26,7 +26,7 @@
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-gulp": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
