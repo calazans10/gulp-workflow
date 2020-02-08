@@ -1,13 +1,13 @@
 {
   "name": "gulp-workflow",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Workflow using Gulp.js",
   "license": "MIT",
   "repository": "calazans10/gulp-workflow",
   "author": {
     "name": "Jeferson Farias Calazans",
     "email": "calazans10@gmail.com",
-    "url": "calazans10.com"
+    "url": "https://calazans10.com"
   },
   "engines": {
     "node": ">=6"
@@ -35,8 +35,8 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "node-sass": "^4.13.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "node-sass": "^4.13.1",
+    "terser-webpack-plugin": "^2.3.4",
     "webpack-stream": "^5.2.1"
   }
 }

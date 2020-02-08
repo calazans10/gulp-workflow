@@ -1,4 +1,4 @@
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -11,20 +11,20 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
-        sourceMap: true
-      })
-    ]
+      new TerserPlugin({
+        sourceMap: true,
+      }),
+    ],
   },
   output: {
-    filename: 'bundle.js'
-  }
+    filename: 'bundle.js',
+  },
 };
