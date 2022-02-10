@@ -35,7 +35,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "terser-webpack-plugin": "^2.3.4",
     "webpack-stream": "^5.2.1"
   }
